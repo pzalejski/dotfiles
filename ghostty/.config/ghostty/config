@@ -1,0 +1,13 @@
+theme                       = rose-pine
+
+font-family                 = Victor Mono Regular
+font-family-italic          = Victor Mono Italic
+font-size                   = 15
+
+background-opacity          = .75
+background-blur             = 100
+
+adjust-cursor-thickness     = 3
+bold-is-bright              = true
+link-url                    = true
+mouse-hide-while-typing     = true
