@@ -7,7 +7,9 @@ font-size                   = 15
 background-opacity          = .75
 background-blur             = 100
 
+cursor-color                = #be5103
 adjust-cursor-thickness     = 3
+
 bold-is-bright              = true
 link-url                    = true
 mouse-hide-while-typing     = true
