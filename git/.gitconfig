@@ -1,6 +1,6 @@
 # This is Git's per-user configuration file.
 [user]
-	name = Piotr Zalejski
+    name = Piotr Zalejski
     email = pzalejski@eb.com
 
 [core]
@@ -26,8 +26,8 @@
     autocrlf = input
 
 [alias]
-    lg = log --graph --abbrev-commit --date=relative --pretty=format:'%C(auto)%h%C(reset) %C(green)(%cr)%C(reset) %d %s %C(magenta)[%cn]%C(reset)'
-	d = difftool
+    lg = log --graph --abbrev-commit --date=relative --pretty=format:'%C(auto)%h%C(reset) %C(green)(%cr)%C(reset) %d %s %C(magenta)[%an]%C(reset)'
+    d = difftool
 
 [pull]
     rebase = true
@@ -40,5 +40,3 @@
 
 [delta]
     syntax-theme = default
-
-
