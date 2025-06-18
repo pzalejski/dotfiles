@@ -1,0 +1,40 @@
+# This is Git's per-user configuration file.
+[user]
+	name = Piotr Zalejski
+    email = pzalejski@eb.com
+
+[core]
+    editor = nvim
+
+[diff]
+    tool = nvimdiff
+
+[difftool]
+    prompt = false
+
+[difftool "nvimdiff"]
+    cmd = nvim -d "$LOCAL" "$REMOTE"
+
+[merge]
+    tool = nvimdiff
+
+[mergetool "nvimdiff"]
+    cmd = nvim -d "$LOCAL" "$REMOTE" "$BASE" "$MERGED"
+    trustExitCode = true
+
+[core]
+    autocrlf = input
+
+[alias]
+    lg = log --graph --abbrev-commit --date=relative --pretty=format:'%C(auto)%h %d %s %Cgreen(%cr)%Creset'
+
+[pull]
+    rebase = true
+
+[rebase]
+    autoStash = true
+
+[push]
+    default = current
+
+
