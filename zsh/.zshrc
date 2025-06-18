@@ -86,19 +86,20 @@ unset PYTHONPATH
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 
-alias python="python3"
-alias repos="cd ~/Repositories"
-
-# GIT ALIASES
-# delete all branches except for master and pre-launch
-alias GDAB="git branch | grep -v \"master\" | grep -v \"pre-launch\" |  xargs git branch -D"
-
 # Fastfetch
 # only run for the first terminal window / tab
 if command -v fastfetch >/dev/null; then
     if [[ $- == *i* && "$TTY" == "/dev/ttys000" ]]; then
         fastfetch -l "$HOME/dotfiles/assets/batman_logo.txt"
     fi
+fi
+
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~ References to other files ~~~~~~~~~~~~~~~~~~~~~~~~
+
+# General aliases
+if [ -f ~/.zsh_aliases ]; then
+    . ~/.zsh_aliases
 fi
 
 

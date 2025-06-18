@@ -1,0 +1,17 @@
+# ~~~~~~~~~~~~~~~~~~~~~~~~ General Aliases ~~~~~~~~~~~~~~~~~~~~~~~~
+
+# Startup
+alias zrc='nvim ~/.zshrc'
+alias zrca='nvim ~/.zsh_aliases'
+
+# Search history
+alias h="history | grep "
+
+
+alias python="python3"
+alias repos="cd ~/Repositories"
+
+# GIT ALIASES
+# delete all branches except for master and pre-launch
+alias GDAB="git branch | grep -v \"master\" | grep -v \"pre-launch\" |  xargs git branch -D"
+
