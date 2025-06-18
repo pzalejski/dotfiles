@@ -26,7 +26,8 @@
     autocrlf = input
 
 [alias]
-    lg = log --graph --abbrev-commit --date=relative --pretty=format:'%C(auto)%h %d %s %Cgreen(%cr)%Creset'
+    lg = log --graph --abbrev-commit --date=relative --pretty=format:'%C(auto)%h%C(reset) %C(green)(%cr)%C(reset) %d %s %C(magenta)[%cn]%C(reset)'
+	d = difftool
 
 [pull]
     rebase = true
@@ -36,5 +37,8 @@
 
 [push]
     default = current
+
+[delta]
+    syntax-theme = default
 
 
