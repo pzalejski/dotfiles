@@ -1,6 +1,8 @@
+-- g = global
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
+-- opt = options
 local opt = vim.opt
 
 opt.number = true
@@ -19,7 +21,7 @@ opt.smartindent = true
 
 opt.clipboard = "unnamedplus"
 
-opt.scrolloff = 999 -- keep the cursor centered on screen when scrollnig
+opt.scrolloff = 8 -- keep # of spaces around cursor when scrolling
 
 opt.hlsearch = true
 
