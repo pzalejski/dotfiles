@@ -8,7 +8,10 @@ background-opacity          = .75
 background-blur             = 100
 
 cursor-color                = #be5103
+cursor-style-blink          = true
 adjust-cursor-thickness     = 3
+
+window-padding-balance      = true
 
 bold-is-bright              = true
 link-url                    = true
