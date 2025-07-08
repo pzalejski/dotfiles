@@ -1,0 +1,82 @@
+# OS-specific files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Icon?
+Desktop.ini
+$RECYCLE.BIN/
+
+# IDEs and Editors
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Vim / Neovim
+*.swp
+*.swo
+*.un~
+.netrwhist
+tags
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg
+*.egg-info/
+dist/
+build/
+.env
+.venv/
+env/
+venv/
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+package-lock.json
+.pnpm-debug.log
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+*.log
+logs/
+*.pid
+
+# Compiled source
+*.class
+*.o
+*.out
+*.exe
+*.dll
+*.so
+
+# Archive files
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# Misc
+coverage/
+.cache/
+tmp/
+*.bak
+*.tmp
+*.orig
+
+# Git
+*.orig
+*.rej
+*.patch
+
+# Testing
+.nyc_output/
+coverage/
