@@ -1,6 +1,7 @@
 -- g = global
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
+vim.g.netrw_liststyle = 0
 
 -- diagnostics
 vim.diagnostic.config({ virtual_text = true })
