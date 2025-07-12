@@ -1,7 +1,10 @@
 # This is Git's per-user configuration file.
 [user]
-    name = Piotr Zalejski
-    email = pzalejski@eb.com
+    name = pzalejski
+    email = 163012189+pzalejski@users.noreply.github.com
+
+[includeIf "gitdir:~/Scripts/"]
+    path = ~/Scripts/.gitconfig
 
 [core]
     editor = nvim
