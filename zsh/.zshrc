@@ -86,13 +86,6 @@ unset PYTHONPATH
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 
-# Fastfetch
-# only run for the first terminal window / tab
-if command -v fastfetch >/dev/null; then
-    if [[ $- == *i* && "$TTY" == "/dev/ttys000" ]]; then
-        fastfetch -l "$HOME/dotfiles/assets/batman_logo.txt"
-    fi
-fi
 
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~ References to other files ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -104,3 +97,10 @@ fi
 
 
 source $ZSH/oh-my-zsh.sh
+
+# Fastfetch only run for the first terminal window / tab
+if command -v fastfetch >/dev/null; then
+    if [[ $- == *i* && "$TTY" == "/dev/ttys000" ]]; then
+        fastfetch -l "$HOME/dotfiles/assets/batman_logo.txt"
+    fi
+fi
