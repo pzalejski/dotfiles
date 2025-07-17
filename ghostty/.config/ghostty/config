@@ -2,7 +2,7 @@ theme                       = rose-pine
 
 font-family                 = Victor Mono Regular
 font-family-italic          = Victor Mono Italic
-font-size                   = 15
+font-size                   = 18
 
 background-opacity          = .75
 background-blur             = 100

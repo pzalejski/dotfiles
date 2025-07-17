@@ -1,7 +1,6 @@
 -- g = global
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
-vim.g.netrw_liststyle = 0
 
 -- diagnostics
 vim.diagnostic.config({ virtual_text = true })
@@ -48,3 +47,11 @@ vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 -- Non-Focused
 vim.api.nvim_set_hl(0, "NormalNC", { bg = "#191724" })
 
+-- Folding
+opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+opt.foldmethod = "expr"
+opt.foldenable = true
+opt.foldlevel = 99 -- keep everything unfolded by default
+
+-- Netrw 
+vim.g.netrw_banner = 0 -- disable banner

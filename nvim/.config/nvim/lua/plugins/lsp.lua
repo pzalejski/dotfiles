@@ -113,12 +113,31 @@ return {
             })
 
             require('mason-lspconfig').setup({
-                ensure_installed = { 'lua_ls', 'pyright', 'ruff', 'gh-actions-language-server' },
+                ensure_installed = { 'lua_ls', 'basedpyright', 'ruff', 'gh-actions-language-server' },
                 handlers = {
                     -- this first function is the "default handler"
                     -- it applies to every language server without a "custom handler"
                     function(server_name)
                         require('lspconfig')[server_name].setup({
+                        })
+                    end,
+
+                    basedpyright = function()
+                        require('lspconfig').basedpyright.setup({
+                            settings = {
+                                basedpyright = {
+                                    typeCheckingMode = "standard",
+                                    diagnosticMode = "workspace",
+                                    analysis = {
+                                        inlayHints = {
+                                            functionReturnTypes = false,
+                                            variableTypes = true,
+                                            callArgumentNames = true,
+                                            genericTypes = true
+                                        }
+                                    }
+                                }
+                            }
                         })
                     end,
 
