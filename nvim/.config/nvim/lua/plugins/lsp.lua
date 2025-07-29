@@ -126,9 +126,9 @@ return {
                         require('lspconfig').basedpyright.setup({
                             settings = {
                                 basedpyright = {
-                                    typeCheckingMode = "standard",
-                                    diagnosticMode = "workspace",
                                     analysis = {
+                                        typeCheckingMode = "standard",
+                                        diagnosticMode = "workspace",
                                         inlayHints = {
                                             functionReturnTypes = false,
                                             variableTypes = true,

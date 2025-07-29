@@ -24,5 +24,5 @@ set('n', '<C-Right>', ':vertical resize +2<CR>')
 
 set("n", "Q", "<nop>")
 
--- Fugitive
+-- Fugitive / Git
 set("n", "<leader>gs", vim.cmd.Git)
