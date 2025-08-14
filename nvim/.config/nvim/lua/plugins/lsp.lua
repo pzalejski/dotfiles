@@ -113,7 +113,7 @@ return {
             })
 
             require('mason-lspconfig').setup({
-                ensure_installed = { 'lua_ls', 'basedpyright', 'ruff', 'gh-actions-language-server' },
+                ensure_installed = { 'lua_ls', 'basedpyright', 'ruff' },
                 handlers = {
                     -- this first function is the "default handler"
                     -- it applies to every language server without a "custom handler"
