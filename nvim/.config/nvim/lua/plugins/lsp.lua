@@ -93,6 +93,14 @@ return {
                 callback = function(event)
                     local opts = { buffer = event.buf }
 
+                    -- autoformat on save
+                    vim.api.nvim_create_autocmd("BufWritePre", {
+                        buffer = opts.buffer,
+                        callback = function()
+                            vim.lsp.buf.format { async = false, id = event.data.client_id }
+                        end
+                    })
+
                     -- Enable inlay hints for all language servers
                     vim.defer_fn(function()
                         vim.lsp.inlay_hint.enable(true)
@@ -106,14 +114,15 @@ return {
                     set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', opts)
                     set('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
                     set('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
-                    set({ 'n', 'x' }, '<F3>', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
+                    set({ 'n', 'x' }, '<leader>fm', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
                     set('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
-                    set('n', '<leader>ih', '<cmd>lua vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())<cr>', opts)
+                    set('n', '<leader>ih', '<cmd>lua vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())<cr>',
+                        opts)
                 end,
             })
 
             require('mason-lspconfig').setup({
-                ensure_installed = { 'lua_ls', 'basedpyright', 'ruff' },
+                ensure_installed = { 'lua_ls', 'basedpyright', 'ruff', 'rust-analyzer' },
                 handlers = {
                     -- this first function is the "default handler"
                     -- it applies to every language server without a "custom handler"
@@ -157,6 +166,9 @@ return {
                         require('lspconfig').rust_analyzer.setup({
                             settings = {
                                 ['rust-analyzer'] = {
+                                    check = {
+                                        command = "clippy"
+                                    },
                                     diagnostics = {
                                         enable = true
                                     },

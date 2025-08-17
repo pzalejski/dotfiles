@@ -17,10 +17,11 @@ opt.splitright = true
 
 opt.wrap = false
 
+opt.autoindent = false
 opt.tabstop = 4
 opt.expandtab = true
 opt.shiftwidth = 4
-opt.smartindent = true
+opt.smartindent = false
 
 opt.clipboard = "unnamedplus"
 
@@ -53,5 +54,5 @@ opt.foldmethod = "expr"
 opt.foldenable = true
 opt.foldlevel = 99 -- keep everything unfolded by default
 
--- Netrw 
+-- Netrw
 vim.g.netrw_banner = 0 -- disable banner
