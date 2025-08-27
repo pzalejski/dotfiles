@@ -37,12 +37,12 @@ function M.set_checkbox()
     end
 end
 
--- Delay kemap setup to make sure bufffer finished initializing
-vim.schedule(function()
-    if vim.bo.filetype == "markdown" then
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "markdown",
+    callback = function()
         vim.keymap.set({ "n", "i" }, "<leader>x", M.set_checkbox,
             { desc = "Cycle Checkbox State", buffer = true })
     end
-end)
+})
 
 return M
