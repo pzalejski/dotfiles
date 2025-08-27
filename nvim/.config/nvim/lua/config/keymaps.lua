@@ -1,3 +1,5 @@
+require("config.md_keymaps")
+
 local set = vim.keymap.set
 
 -- Basic movement keybinds navigating splits
@@ -17,9 +19,9 @@ set("v", "J", ":m '>+1<CR>gv=gv")
 set("v", "K", ":m '<-2<CR>gv=gv")
 
 -- Window resizing
-set('n', '<C-Up>',    ':resize -2<CR>')
-set('n', '<C-Down>',  ':resize +2<CR>')
-set('n', '<C-Left>',  ':vertical resize -2<CR>')
+set('n', '<C-Up>', ':resize -2<CR>')
+set('n', '<C-Down>', ':resize +2<CR>')
+set('n', '<C-Left>', ':vertical resize -2<CR>')
 set('n', '<C-Right>', ':vertical resize +2<CR>')
 
 set("n", "Q", "<nop>")

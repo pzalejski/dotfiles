@@ -16,7 +16,7 @@ return {
                 highlight = 'RenderMarkdownChecked',
                 scope_highlight = nil
             },
-            custom = { todo = { rendered = '◯ ' } },
+            custom = { todo = { raw = '[-]', rendered = '◯ ' } },
         },
         heading = {
             position = 'inline'
