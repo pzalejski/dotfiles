@@ -8,7 +8,6 @@ vim.diagnostic.config({ virtual_text = true })
 -- opt = options
 local opt = vim.opt
 
-opt.number = true
 opt.relativenumber = true
 opt.numberwidth = 4
 
@@ -40,13 +39,6 @@ opt.virtualedit = "block"
 opt.inccommand = "split"
 
 opt.ignorecase = true
-
--- Set both the Normal window and floating window background colors to transparent / none
-vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-
--- Non-Focused
-vim.api.nvim_set_hl(0, "NormalNC", { bg = "#191724" })
 
 -- Folding
 opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
