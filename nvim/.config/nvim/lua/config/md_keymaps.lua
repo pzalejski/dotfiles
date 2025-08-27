@@ -26,7 +26,7 @@ function M.set_checkbox()
         vim.api.nvim_set_current_line(indent .. new_line)
         -- `- [ ] ` or any of the filled options are 6 characters
         -- move cursor back 6 places
-        vim.api.nvim_win_set_cursor(0, { row, col - 6 })
+        vim.api.nvim_win_set_cursor(0, { row, math.max(col - 6, #indent) }) -- prevent going before the indent
     else
         -- If no checkbox found, create one att current indent
         local new_line = "- [ ] " .. text
