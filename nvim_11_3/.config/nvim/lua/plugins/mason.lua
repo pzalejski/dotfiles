@@ -8,5 +8,6 @@ return {
                 package_uninstalled = "✗"
             }
         }
-    }
+    },
+    enabled = true
 }
