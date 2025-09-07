@@ -1,6 +1,6 @@
-require("config.options")
-require("config.autocmds")
-require("config.keymaps")
-require("config.lazy")
-require("config.ui")
+require('config.options') -- Needs to be first since mapleader is set here
+require('plugins.init')
 
+require('config.autocmds')
+require('config.ui')
+require('config.keymaps')

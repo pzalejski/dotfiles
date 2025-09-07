@@ -1,6 +1,7 @@
-return {
-    "sphamba/smear-cursor.nvim",
-    opts = {
-        cursor_color = '#be5103'
-    },
-}
+vim.pack.add({
+    { src = 'https://github.com/sphamba/smear-cursor.nvim' }
+})
+
+require('smear_cursor').setup({
+    cursor_color = '#be5103'
+})
