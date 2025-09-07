@@ -1,17 +1,24 @@
 # ~~~~~~~~~~~~~~~~~~~~~~~~ General Aliases ~~~~~~~~~~~~~~~~~~~~~~~~
 
 # Startup
-alias zrc='nvim ~/.zshrc'
-alias zrca='nvim ~/.zsh_aliases'
+alias zc='nvim ~/.zshrc'
+alias za='nvim ~/.zsh_aliases'
+alias vim="nvim"
 
 # Search history
 alias h="history | grep "
 
-
+# Tools Python
 alias python="python3"
+alias activate="source .venv/bin/activate"
+alias pipup="pip install --upgrade pip"
+alias pipi="pip install -r requirements.txt"
+alias piplo="pip list --outdated"
+
+# Common Directories
+alias dn="cd ~/dotfiles/nvim/.config/nvim"
 alias repos="cd ~/Repositories"
 
 # GIT ALIASES
 # delete all branches except for master and pre-launch
-alias GDAB="git branch | grep -v \"master\" | grep -v \"pre-launch\" |  xargs git branch -D"
-
+alias GDAB="git branch | grep -v "main" |  xargs git branch -D"
