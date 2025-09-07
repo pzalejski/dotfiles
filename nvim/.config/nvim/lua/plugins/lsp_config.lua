@@ -4,10 +4,12 @@ vim.pack.add({
 
 
 local lspconfig = require('lspconfig')
+local util = require('lspconfig.util')
 
 
 -- LUA
 lspconfig.lua_ls.setup({
+    root_dir = util.root_pattern('.git'),
     settings = {
         Lua = {
             format = {
@@ -54,7 +56,7 @@ lspconfig.ruff.setup({
     filetypes = 'python'
 })
 
-vim.lsp.enable('ruff')
+-- vim.lsp.enable('ruff')
 
 -- General and Keymaps
 vim.api.nvim_create_autocmd('LspAttach', {
@@ -90,7 +92,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
         set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', opts)
         set('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
         set('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
-        set({ 'n', 'x' }, '<leader>', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
+        set({ 'n', 'x' }, '<leader>fm', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
         set('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
         set('n', '<leader>ih', '<cmd>lua vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())<cr>',
             opts)
