@@ -1,18 +1,26 @@
 theme                       = rose-pine
+custom-shader               = ./shaders/bloom01.glsl
+
+# custom-shader               = ./shaders/cursor_blaze.glsl
+
+title                       = " "
+macos-titlebar-style        = hidden
 
 font-family                 = Victor Mono Regular
 font-family-italic          = Victor Mono Italic
 font-size                   = 18
 
-background-opacity          = .75
-background-blur             = 100
+background                  = #000000
+background-opacity          = .65
+background-blur             = 45
 
 cursor-color                = #be5103
 cursor-style-blink          = true
 adjust-cursor-thickness     = 3
 
 window-padding-balance      = true
+window-padding-x            = 25
 
-bold-is-bright              = true
+ # bold-is-bright              = true
 link-url                    = true
 mouse-hide-while-typing     = true
