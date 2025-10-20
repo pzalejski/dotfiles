@@ -3,12 +3,12 @@ vim.pack.add({
 })
 
 
-local lspconfig = require('lspconfig')
+-- local lspconfig = require('lspconfig')
 local util = require('lspconfig.util')
-
+--
 
 -- LUA
-lspconfig.lua_ls.setup({
+vim.lsp.config("lua_ls",{
     root_dir = util.root_pattern('.git'),
     settings = {
         Lua = {
@@ -29,7 +29,7 @@ lspconfig.lua_ls.setup({
 })
 
 -- PYTHON
-lspconfig.basedpyright.setup({
+vim.lsp.config("basedpyright",{
     settings = {
         basedpyright = {
             analysis = {
@@ -52,14 +52,14 @@ lspconfig.basedpyright.setup({
     }
 })
 
-lspconfig.ruff.setup({
+vim.lsp.config("ruff",{
     filetypes = 'python'
 })
 
 vim.lsp.enable('ruff')
 
 -- GO
-lspconfig.gopls.setup({
+vim.lsp.config("gopls", {
     settings = {
         gopls = {
             ['ui.inlayhint.hints'] = {
