@@ -56,7 +56,25 @@ lspconfig.ruff.setup({
     filetypes = 'python'
 })
 
--- vim.lsp.enable('ruff')
+vim.lsp.enable('ruff')
+
+-- GO
+lspconfig.gopls.setup({
+    settings = {
+        gopls = {
+            ['ui.inlayhint.hints'] = {
+                compositeLiteralFields = true,
+                constantValues = true,
+                parameterNames = true
+            },
+            analyses = {
+                unusedparams = true
+            },
+            staticcheck = true,
+            gofumpt = true
+        }
+    }
+})
 
 -- General and Keymaps
 vim.api.nvim_create_autocmd('LspAttach', {
@@ -92,7 +110,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
         set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', opts)
         set('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
         set('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
-        set({ 'n', 'x' }, '<leader>fm', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
+        -- set({ 'n', 'x' }, '<leader>S', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
         set('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
         set('n', '<leader>ih', '<cmd>lua vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())<cr>',
             opts)

@@ -14,5 +14,3 @@ require('rose-pine').setup({
         transparency = true -- keep enabled for popup windows
     }
 })
-
--- vim.cmd("colorscheme rose-pine")

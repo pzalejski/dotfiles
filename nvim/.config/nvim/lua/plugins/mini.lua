@@ -8,9 +8,11 @@ vim.pack.add({
     { src = gh .. 'mini.notify' },
     { src = gh .. 'mini.icons' },
     { src = gh .. 'mini.indentscope' },
-    { src = gh .. 'mini.starter' }
+    { src = gh .. 'mini.starter' },
+    { src = gh .. 'mini.files' }
 })
 
+require('mini.files').setup()
 
 require('mini.pick').setup({})
 

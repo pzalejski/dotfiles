@@ -1,7 +1,7 @@
 vim.pack.add({
-
     { src = 'https://github.com/saghen/blink.cmp',            version = vim.version.range('*') },
-    { src = 'https://github.com/rafamadriz/friendly-snippets' }
+    { src = 'https://github.com/rafamadriz/friendly-snippets' },
+    { src = 'https://github.com/github/copilot.vim' }
 })
 
 require('blink-cmp').setup({
@@ -47,3 +47,6 @@ require('blink-cmp').setup({
         implementation = 'prefer_rust_with_warning',
     },
 })
+
+vim.keymap.set('i', '<M-w>', '<Plug>(copilot-accept-word)')
+vim.keymap.set('i', '<M-n>', '<Plug>(copilot-accept-line)')
