@@ -64,9 +64,56 @@ vec4 saturate(vec4 color, float factor) {
     float gray = dot(color, vec4(0.299, 0.587, 0.114, 0.)); // luminance
     return mix(vec4(gray), color, factor);
 }
-const vec4 TRAIL_COLOR = vec4(1.0, 0.725, 0.161, 1.0);
-const vec4 TRAIL_COLOR_ACCENT = vec4(1.0, 0., 0., 1.0);
-const float DURATION = 0.3; //IN SECONDS
+// DEFAULT
+// const vec4 TRAIL_COLOR = vec4(1.0, 0.725, 0.161, 1.0); // #ffa52a
+// const vec4 TRAIL_COLOR_ACCENT = vec4(1.0, 0., 0., 1.0); // #ff0000
+
+// MUTED ROSE
+// const vec4 TRAIL_COLOR = vec4(0.55, 0.28, 0.38, 1.0);           // #8C475F
+// const vec4 TRAIL_COLOR_ACCENT = vec4(0.2, 0.45, 0.56, 1.0);     // #33728F
+
+// TWILIGHT INK
+// const vec4 TRAIL_COLOR = vec4(0.2, 0.45, 0.56, 1.0);            // #33728F
+// const vec4 TRAIL_COLOR_ACCENT = vec4(0.55, 0.28, 0.38, 1.0);    // #8C475F
+
+// WHISPER VELVET
+// const vec4 TRAIL_COLOR = vec4(0.7, 0.6, 0.85, 1.0);             // #B399D9
+// const vec4 TRAIL_COLOR_ACCENT = vec4(0.6, 0.8, 0.85, 1.0);      // #99CCE8
+
+// COSMIC PINE
+// const vec4 TRAIL_COLOR = vec4(0.6, 0.8, 0.85, 1.0);             // #99CCE8
+// const vec4 TRAIL_COLOR_ACCENT= vec4(0.7, 0.6, 0.85, 1.0);       // #B399D9
+
+// GOLD + ROSE
+// const vec4 TRAIL_COLOR = vec4(0.8, 0.6, 0.35, 1.0);             // #CC9959
+// const vec4 TRAIL_COLOR_ACCENT = vec4(0.85, 0.4, 0.5, 1.0);      // #D96680
+
+// MIDNIGHT ROSE
+const vec4 TRAIL_COLOR = vec4(0.2, 0.2, 0.25, 1.0);                // #333340
+const vec4 TRAIL_COLOR_ACCENT = vec4(0.4, 0.3, 0.5, 1.0);          // #664C80
+
+// DUSTY LAVENDER
+// const vec4 TRAIL_COLOR = vec4(0.22, 0.24, 0.30, 1.0);           // #393D4D
+// const vec4 TRAIL_COLOR_ACCENT = vec4(0.5, 0.4, 0.6, 1.0);       // #806699
+
+// NOCTURE MAUVE
+// const vec4 TRAIL_COLOR = vec4(0.18, 0.17, 0.23, 1.0);           // #2E2B3A
+// const vec4 TRAIL_COLOR_ACCENT = vec4(0.55, 0.4, 0.55, 1.0);     // #8C668C
+
+// STELLAR VEIL
+// const vec4 TRAIL_COLOR = vec4(0.25, 0.28, 0.35, 1.0);           // #40485A
+// const vec4 TRAIL_COLOR_ACCENT = vec4(0.6, 0.55, 0.8, 1.0);      // #998CCC
+
+// LUNAR SILT
+// const vec4 TRAIL_COLOR = vec4(0.26, 0.26, 0.30, 1.0);           // #42424D
+// const vec4 TRAIL_COLOR_ACCENT = vec4(0.5, 0.45, 0.65, 1.0);     // #8073A6
+
+// MIDNIGHT FOG
+// const vec4 TRAIL_COLOR = vec4(0.2, 0.22, 0.27, 1.0);            // #333849
+// const vec4 TRAIL_COLOR_ACCENT = vec4(0.55, 0.5, 0.7, 1.0);      // #8C80B3
+
+
+const float DURATION = 0.175; //IN SECONDS
 
 void mainImage(out vec4 fragColor, in vec2 fragCoord)
 {
@@ -103,14 +150,14 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
     // Distance between cursors determine the total length of the parallelogram;
     float lineLength = distance(centerCC, centerCP);
 
-    float mod = .007;
+    float mod = .0165; // 0.007
     //trailblaze
-    // HACK: Using the saturate function because I currently don't know how to blend colors without losing saturation.
-    vec4 trail = mix(saturate(TRAIL_COLOR_ACCENT, 1.5), fragColor, 1. - smoothstep(0., sdfTrail + mod, 0.007));
-    trail = mix(saturate(TRAIL_COLOR, 1.5), trail, 1. - smoothstep(0., sdfTrail + mod, 0.006));
+    // HACK: Using the saturate function because I currently don't know how to blend colors without losing saturation. 
+    vec4 trail = mix(saturate(TRAIL_COLOR_ACCENT, 1.5), fragColor, 1. - smoothstep(0., sdfTrail + mod, 0.0025)); // 0.007
+    trail = mix(saturate(TRAIL_COLOR, 1.5), trail, 1. - smoothstep(0., sdfTrail + mod, 0.0025)); // 0.006
     trail = mix(trail, saturate(TRAIL_COLOR, 1.5), step(sdfTrail + mod, 0.));
     //cursorblaze
-    trail = mix(saturate(TRAIL_COLOR_ACCENT, 1.5), trail, 1. - smoothstep(0., sdfCurrentCursor + .002, 0.004));
-    trail = mix(saturate(TRAIL_COLOR, 1.5), trail, 1. - smoothstep(0., sdfCurrentCursor + .002, 0.004));
+    trail = mix(saturate(TRAIL_COLOR_ACCENT, 1.1), trail, 1. - smoothstep(0., sdfCurrentCursor + .0002, 0.004)); // 0.004
+    trail = mix(saturate(TRAIL_COLOR, 1.1), trail, 1. - smoothstep(0., sdfCurrentCursor + .0002, 0.002)); // 0.004
     fragColor = mix(trail, fragColor, 1. - smoothstep(0., sdfCurrentCursor, easedProgress * lineLength));
 }

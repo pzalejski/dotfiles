@@ -1,26 +1,34 @@
-theme                       = rose-pine
+# theme                       = Sea Shells
+theme                       = Rose Pine
+
 custom-shader               = ./shaders/bloom01.glsl
 
-# custom-shader               = ./shaders/cursor_blaze.glsl
+custom-shader               = ./shaders/cursor_blaze.glsl
 
 title                       = " "
 macos-titlebar-style        = hidden
+# split-divider-color         = #1e1e1e
+split-divider-color         = #8C475F
 
 font-family                 = Victor Mono Regular
 font-family-italic          = Victor Mono Italic
 font-size                   = 18
 
-background                  = #000000
-background-opacity          = .65
-background-blur             = 45
+# background                  = #000000
+# background                  = #14121f
+background                  = #0f0d1a
+background-opacity          = 0.70
+background-blur             = 30
 
-cursor-color                = #be5103
+# cursor-color                = #be5103
+cursor-color                = #8C475F
+# cursor-color                = #806699
 cursor-style-blink          = true
 adjust-cursor-thickness     = 3
 
 window-padding-balance      = true
 window-padding-x            = 25
 
- # bold-is-bright              = true
+# bold-is-bright              = true
 link-url                    = true
 mouse-hide-while-typing     = true
