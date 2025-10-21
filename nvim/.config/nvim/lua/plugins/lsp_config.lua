@@ -2,14 +2,12 @@ vim.pack.add({
     { src = 'https://github.com/neovim/nvim-lspconfig', version = 'master' }
 })
 
-
--- local lspconfig = require('lspconfig')
 local util = require('lspconfig.util')
---
 
 -- LUA
-vim.lsp.config("lua_ls",{
-    root_dir = util.root_pattern('.git'),
+vim.lsp.config('luals', {
+    cmd = { 'lua-language-server' }, -- Or the path to your lua-language-server executable
+    filetypes = { 'lua' },
     settings = {
         Lua = {
             format = {
@@ -21,15 +19,30 @@ vim.lsp.config("lua_ls",{
                     max_line_length = '120' -- must be a string
                 }
             },
+            runtime = {
+                version = 'LuaJIT', -- Or '5.1', '5.2', '5.3', '5.4'
+            },
+            -- workspace = {
+            --     library = vim.api.nvim_get_runtime_rtp(), -- Include Neovim's runtime path for global definitions
+            --     checkThirdParty = false,
+            -- },
             diagnostics = {
-                globals = { 'vim' }
-            }
-        }
-    }
-})
+                globals = { 'vim' }, -- Recognize the `vim` global
+            },
+            inlayHint = {
+                enable = true,
+            },
+            telemetry = {
+                enable = false,
+            },
+        },
+    },
+}
+)
+vim.lsp.enable('luals')
 
 -- PYTHON
-vim.lsp.config("basedpyright",{
+vim.lsp.config('basedpyright', {
     settings = {
         basedpyright = {
             analysis = {
@@ -51,15 +64,16 @@ vim.lsp.config("basedpyright",{
         }
     }
 })
+vim.lsp.enable('basedpyright')
 
-vim.lsp.config("ruff",{
-    filetypes = 'python'
+vim.lsp.config('ruff', {
+    filetypes = { 'python' }
 })
 
 vim.lsp.enable('ruff')
 
 -- GO
-vim.lsp.config("gopls", {
+vim.lsp.config('gopls', {
     settings = {
         gopls = {
             ['ui.inlayhint.hints'] = {
@@ -75,10 +89,11 @@ vim.lsp.config("gopls", {
         }
     }
 })
+vim.lsp.enable('gopls')
 
 -- General and Keymaps
 vim.api.nvim_create_autocmd('LspAttach', {
-    desc = 'LSP Actions',
+    desc = 'vim.lsp.Actions',
     callback = function(event)
         local opts = { buffer = event.buf }
 
@@ -110,7 +125,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
         set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', opts)
         set('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
         set('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
-        -- set({ 'n', 'x' }, '<leader>S', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
+        -- set({ 'n', 'x' }, '<leader>S', '<cmd>lua vim.lsp.buf.format{async = true})<cr>', opts)
         set('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
         set('n', '<leader>ih', '<cmd>lua vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())<cr>',
             opts)
